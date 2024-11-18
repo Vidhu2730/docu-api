@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 import requests
 from requests.auth import HTTPBasicAuth
 from bs4 import BeautifulSoup
@@ -25,6 +25,24 @@ def get_confluence_page(page_id):
         return jsonify({"body_storage_value": plain_text})
     else:
         return jsonify({"error": "Failed to retrieve the page", "status_code": response.status_code}), response.status_code
+
+@app.route('/confluence/search', methods=['GET'])
+def search_confluence():
+    search_term = request.args.get('query')
+    if not search_term:
+        return jsonify({"error": "Query parameter 'query' is required"}), 400
+
+    search_url = f'https://docuaihackathonpoc.atlassian.net/wiki/rest/api/search'
+    cql_query = f'text~"{search_term}"'
+    params = {'cql': cql_query}
+
+    response = requests.get(search_url, auth=HTTPBasicAuth(USERNAME, API_TOKEN), params=params)
+    print(response)
+    if response.status_code == 200:
+        results = response.json()
+        return jsonify({"results": results})
+    else:
+        return jsonify({"error": "Failed to perform search", "status_code": response.status_code}), response.status_code
 
 if __name__ == '__main__':
     app.run(debug=True)
