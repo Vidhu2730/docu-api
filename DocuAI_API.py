@@ -2,10 +2,12 @@ from flask import Flask, jsonify, request
 import requests
 from requests.auth import HTTPBasicAuth
 from bs4 import BeautifulSoup
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
-USERNAME = ''
+USERNAME = 'docuaihackathon@gmail.com'
 API_TOKEN = ''
 
 @app.route('/confluence/page/<page_id>', methods=['GET'])
