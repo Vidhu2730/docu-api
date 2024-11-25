@@ -1,0 +1,6 @@
+{
+    "user_name": "docuaihackathon@gmail.com",
+    "confluence_api_key": "",
+    "openai_api_key": "",
+    "openai_api_request_url": "https://api.openai.com/v1/chat/completions"
+}
