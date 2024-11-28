@@ -26,11 +26,8 @@ def ask_openai(user_prompt):
     # Send the request to the OpenAI API
     response = requests.post(OPENAI_API_URL, headers=headers, json=payload, verify=False)
     print(response)
-    # Check if the request was successful
-    if response.status_code == 200:
-        return response.json()
-    else:
-        return response.json()
+    
+    return response.json()
 
 
 def ask_openai_to_summarize(data):
@@ -47,8 +44,5 @@ def ask_openai_to_summarize(data):
     # Send the request to the OpenAI API
     response = requests.post(OPENAI_API_URL, headers=headers, json=payload, verify=False)
     print(response)
-    # Check if the request was successful
-    if response.status_code == 200:
-        return response.json()
-    else:
-        return response.json()
+
+    return response.json()

@@ -16,9 +16,7 @@ def interact():
     user_prompt = data.get("query")
 
     # Call the controller function
-    response = handle_interaction(
-        user_prompt
-    )
+    response = handle_interaction(user_prompt)
 
     return response
 
