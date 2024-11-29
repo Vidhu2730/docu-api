@@ -25,7 +25,7 @@ def get_confluence_page(page_id):
         soup = BeautifulSoup(body_storage_value, 'html.parser')
         plain_text = soup.get_text(separator="\n").strip()  # Get text without HTML tags
         
-        return jsonify({"body_storage_value": plain_text})
+        return plain_text
     else:
         return jsonify({"error": "Failed to retrieve the page", "status_code": response.status_code}), response.status_code
 
