@@ -1,6 +1,6 @@
 {
-    "user_name": "docuaihackathon@gmail.com",
+    "user_name": "",
     "confluence_api_key": "",
     "openai_api_key": "",
-    "openai_api_request_url": "https://tonyslab2.openai.azure.com/openai/deployments/gpt-4o-mini/chat/completions?api-version=2024-10-21"
+    "openai_api_request_url": ""
 }
